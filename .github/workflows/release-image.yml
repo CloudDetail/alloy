@@ -5,9 +5,10 @@ permissions:
 
 on:
   workflow_dispatch:
-    tags:
-      description: 'The tag to release'
-      required: true
+    inputs:
+      tag:
+        description: 'The tag to release'
+        required: true
 
 env:
   ALLOY_CONTAINER_NAME: grafana-alloy
