@@ -57,3 +57,9 @@ jobs:
         run: |
           make alloy-image ALLOY_IMAGE=${{ env.GRAFANA_ALLOY_FULL_TAG }}
           docker push ${{ env.GRAFANA_ALLOY_FULL_TAG }}
+
+      - name: push tag
+        uses: anothrNick/github-tag-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CUSTOM_TAG: ${{ github.event.inputs.tag }}
