@@ -56,14 +56,28 @@ jobs:
           echo "GRAFANA_ALLOY_FULL_TAG_ARM=${{ env.REGISTRY_HOST }}/${{ env.REGISTRY_USERNAME_ARM }}/${{ env.ALLOY_CONTAINER_NAME }}:${{ github.event.inputs.tag }}" >> $GITHUB_ENV
 
       - name: Build grafana-alloy docker and push(AMD64)
-        run: |
-          make alloy-image ALLOY_IMAGE=${{ env.GRAFANA_ALLOY_FULL_TAG }}
-          docker push ${{ env.GRAFANA_ALLOY_FULL_TAG }}
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          platforms: linux/amd64
+          tags: |
+            ${{ env.GRAFANA_ALLOY_FULL_TAG }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: Build grafana-alloy docker image and push(ARM64)
-        run: |
-          make alloy-image DOCKER_PLATFORM=linux/arm64 ${{ env.GRAFANA_ALLOY_FULL_TAG_ARM }}
-          docker push ${{ env.GRAFANA_ALLOY_FULL_TAG_ARM }}
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          platforms: linux/arm64
+          tags: |
+            ${{ env.GRAFANA_ALLOY_FULL_TAG_ARM }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: push tag
         uses: anothrNick/github-tag-action@v1
