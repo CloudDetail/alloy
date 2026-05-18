@@ -925,4 +925,4 @@ replace github.com/prometheus/procfs => github.com/prometheus/procfs v0.12.0
 // PR to track it: https://github.com/opencontainers/runc/pull/4397
 replace github.com/opencontainers/runc => github.com/rafaelroquetto/runc v1.1.14-1
 
-replace github.com/ncabatoff/process-exporter => github.com/NeJan2020/process-exporter v0.8.7
+replace github.com/ncabatoff/process-exporter => github.com/NeJan2020/process-exporter v0.7.10
