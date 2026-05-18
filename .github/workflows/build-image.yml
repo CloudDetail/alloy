@@ -7,14 +7,21 @@ on:
   workflow_dispatch:
 
 env:
-  DOCKERHUB_REPO: registry.cn-hangzhou.aliyuncs.com/kindlingx/grafana-alloy
+  ALLOY_CONTAINER_NAME: grafana-alloy
+  REGISTRY_HOST: registry.cn-hangzhou.aliyuncs.com
+  REGISTRY_USERNAME_ARM: originx
 
 jobs:
   build-image:
     strategy:
       matrix:
-        platform: [linux/amd64, linux/arm64]
-    runs-on: ubuntu-latest
+        os: [ubuntu-latest]
+        include:
+          - os: ubuntu-latest
+            arch: amd64
+    runs-on: ${{ matrix.os }}
+    outputs:
+      IMAGE_TAG_NAME: ${{ steps.build-image.outputs.IMAGE_TAG_NAME }}
 
     steps:
       - name: Checkout
@@ -26,44 +33,43 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Login to DockerHub
-        uses: docker/login-action@v3
+      - name: Log in to container registry
+        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567
         with:
-          registry: registry.cn-hangzhou.aliyuncs.com
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: ${{ env.REGISTRY_HOST }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
 
-      - name: Generate App Version (AMD64)
-        if: ${{ matrix.platform == 'linux/amd64' }}
+      - name: Generate image metadata
+        id: build-image
+        env:
+          BRANCH_NAME: ${{ github.ref_name }}
+          COMMIT_HASH: ${{ github.sha }}
         run: |
-          TAG=$(git describe --tags --exact-match 2>/dev/null || echo "")
-          if [ -n "$TAG" ]; then
-            echo "APP_VERSION=$TAG" >> $GITHUB_ENV
-          else
-            BRANCH=$(git rev-parse --abbrev-ref HEAD | sed 's#[^a-zA-Z0-9._-]#-#g')
-            COMMIT=$(git rev-parse --short HEAD)
-            echo "APP_VERSION=${BRANCH}-${COMMIT}" >> $GITHUB_ENV
-          fi
+          echo "IMAGE_TAG_NAME=${{ env.BRANCH_NAME }}-${{ env.COMMIT_HASH }}" >> "$GITHUB_OUTPUT"
+          echo "GRAFANA_ALLOY_FULL_TAG=${{ env.REGISTRY_HOST }}/${{ secrets.REGISTRY_USERNAME }}/${{ env.ALLOY_CONTAINER_NAME }}:${{ env.BRANCH_NAME }}-${{ env.COMMIT_HASH }}" >> $GITHUB_ENV
+          echo "GRAFANA_ALLOY_FULL_TAG_ARM=${{ env.REGISTRY_HOST }}/${{ env.REGISTRY_USERNAME_ARM }}/${{ env.ALLOY_CONTAINER_NAME }}:${{ env.BRANCH_NAME }}-${{ env.COMMIT_HASH }}-arm" >> $GITHUB_ENV
 
-      - name: Generate App Version (ARM64)
-        if: ${{ matrix.platform == 'linux/arm64' }}
-        run: |
-          TAG=$(git describe --tags --exact-match 2>/dev/null || echo "")
-          if [ -n "$TAG" ]; then
-            echo "APP_VERSION=$TAG" >> $GITHUB_ENV
-          else
-            BRANCH=$(git rev-parse --abbrev-ref HEAD | sed 's#[^a-zA-Z0-9._-]#-#g')
-            COMMIT=$(git rev-parse --short HEAD)
-            echo "APP_VERSION=${BRANCH}-${COMMIT}" >> $GITHUB_ENV
-          fi
-
-      - name: Build and push
-        id: docker_build
+      - name: Build grafana-alloy docker and push(AMD64)
         uses: docker/build-push-action@v6
         with:
           context: .
           file: ./Dockerfile
           push: true
-          platforms: ${{ matrix.platform }}
+          platforms: linux/amd64
           tags: |
-            ${{ env.DOCKERHUB_REPO }}:${{ env.APP_VERSION }}
+            ${{ env.GRAFANA_ALLOY_FULL_TAG }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build grafana-alloy docker image and push(ARM64)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          platforms: linux/arm64
+          tags: |
+            ${{ env.GRAFANA_ALLOY_FULL_TAG_ARM }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
