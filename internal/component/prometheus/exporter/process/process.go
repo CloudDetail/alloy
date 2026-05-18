@@ -40,13 +40,12 @@ var DefaultArguments = Arguments{
 type Arguments struct {
 	ProcessExporter []MatcherGroup `alloy:"matcher,block,optional"`
 
-	ProcFSPath        string `alloy:"procfs_path,attr,optional"`
-	Children          bool   `alloy:"track_children,attr,optional"`
-	Threads           bool   `alloy:"track_threads,attr,optional"`
-	SMaps             bool   `alloy:"gather_smaps,attr,optional"`
-	Recheck           bool   `alloy:"recheck_on_scrape,attr,optional"`
-	MinimalMetrics    bool   `alloy:"minimal_metrics,attr,optional"`
-	RemoveEmptyGroups bool   `alloy:"remove_empty_groups,attr,optional"`
+	ProcFSPath     string `alloy:"procfs_path,attr,optional"`
+	Children       bool   `alloy:"track_children,attr,optional"`
+	Threads        bool   `alloy:"track_threads,attr,optional"`
+	SMaps          bool   `alloy:"gather_smaps,attr,optional"`
+	Recheck        bool   `alloy:"recheck_on_scrape,attr,optional"`
+	MinimalMetrics bool   `alloy:"minimal_metrics,attr,optional"`
 }
 
 // MatcherGroup taken and converted to Alloy from github.com/ncabatoff/process-exporter/config
@@ -64,14 +63,13 @@ func (a *Arguments) SetToDefault() {
 
 func (a *Arguments) Convert() *process_exporter.Config {
 	return &process_exporter.Config{
-		ProcessExporter:   convertMatcherGroups(a.ProcessExporter),
-		ProcFSPath:        a.ProcFSPath,
-		Children:          a.Children,
-		Threads:           a.Threads,
-		SMaps:             a.SMaps,
-		Recheck:           a.Recheck,
-		MinimalMetrics:    a.MinimalMetrics,
-		RemoveEmptyGroups: false,
+		ProcessExporter: convertMatcherGroups(a.ProcessExporter),
+		ProcFSPath:      a.ProcFSPath,
+		Children:        a.Children,
+		Threads:         a.Threads,
+		SMaps:           a.SMaps,
+		Recheck:         a.Recheck,
+		MinimalMetrics:  a.MinimalMetrics,
 	}
 }
 

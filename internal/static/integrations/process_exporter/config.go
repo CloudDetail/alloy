@@ -12,26 +12,24 @@ import (
 
 // DefaultConfig holds the default settings for the process_exporter integration.
 var DefaultConfig = Config{
-	ProcFSPath:        "/proc",
-	Children:          true,
-	Threads:           true,
-	SMaps:             true,
-	Recheck:           false,
-	MinimalMetrics:    false,
-	RemoveEmptyGroups: false,
+	ProcFSPath:     "/proc",
+	Children:       true,
+	Threads:        true,
+	SMaps:          true,
+	Recheck:        false,
+	MinimalMetrics: false,
 }
 
 // Config controls the process_exporter integration.
 type Config struct {
 	ProcessExporter exporter_config.MatcherRules `yaml:"process_names,omitempty"`
 
-	ProcFSPath        string `yaml:"procfs_path,omitempty"`
-	Children          bool   `yaml:"track_children,omitempty"`
-	Threads           bool   `yaml:"track_threads,omitempty"`
-	SMaps             bool   `yaml:"gather_smaps,omitempty"`
-	Recheck           bool   `yaml:"recheck_on_scrape,omitempty"`
-	MinimalMetrics    bool   `yaml:"minimal_metrics,omitempty"`
-	RemoveEmptyGroups bool   `yaml:"remove_empty_groups,omitempty"`
+	ProcFSPath     string `yaml:"procfs_path,omitempty"`
+	Children       bool   `yaml:"track_children,omitempty"`
+	Threads        bool   `yaml:"track_threads,omitempty"`
+	SMaps          bool   `yaml:"gather_smaps,omitempty"`
+	Recheck        bool   `yaml:"recheck_on_scrape,omitempty"`
+	MinimalMetrics bool   `yaml:"minimal_metrics,omitempty"`
 }
 
 // UnmarshalYAML implements yaml.Unmarshaler.
