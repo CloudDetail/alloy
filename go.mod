@@ -103,7 +103,7 @@ require (
 	github.com/mitchellh/mapstructure v1.5.1-0.20231216201459-8508981c8b6c
 	github.com/mwitkow/go-conntrack v0.0.0-20190716064945-2f068394615f
 	github.com/natefinch/atomic v1.0.1
-	github.com/ncabatoff/process-exporter v0.7.10
+	github.com/ncabatoff/process-exporter v0.8.7
 	github.com/nerdswords/yet-another-cloudwatch-exporter v0.61.0
 	github.com/oklog/run v1.1.0
 	github.com/olekukonko/tablewriter v0.0.5
@@ -889,7 +889,7 @@ replace (
 	github.com/prometheus/mysqld_exporter => github.com/grafana/mysqld_exporter v0.12.2-0.20231005125903-364b9c41e595
 
 	// TODO(marctc, mattdurham): Replace node_export with custom fork for multi usage. https://github.com/prometheus/node_exporter/pull/2812
-	github.com/prometheus/node_exporter => github.com/grafana/node_exporter v0.18.1-grafana-r01.0.20231004161416-702318429731
+	github.com/prometheus/node_exporter => github.com/grafana/node_exporter v0.18.1-grafana-r01.0.20250806062222-612bdf9540ec
 )
 
 // Replacing for an internal fork which allows us to observe metrics produced by the Collector.
@@ -917,8 +917,6 @@ exclude (
 	k8s.io/client-go v8.0.0+incompatible
 	k8s.io/client-go v12.0.0+incompatible
 )
-
-replace github.com/prometheus/procfs => github.com/prometheus/procfs v0.12.0
 
 // This is a temporary replace because runk is still on this version.
 // It's important to remove it asap because in version v0.13.1 there is a fix for Beyla.
