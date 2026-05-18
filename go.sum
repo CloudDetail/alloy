@@ -381,8 +381,8 @@ github.com/Microsoft/hcsshim v0.12.5 h1:bpTInLlDy/nDRWFVcefDZZ1+U8tS+rz3MxjKgu9b
 github.com/Microsoft/hcsshim v0.12.5/go.mod h1:tIUGego4G1EN5Hb6KC90aDYiUI2dqLSTTOCjVNpOgZ8=
 github.com/NYTimes/gziphandler v0.0.0-20170623195520-56545f4a5d46/go.mod h1:3wb06e3pkSAbeQ52E9H9iFoQsEEwGN64994WTCIhntQ=
 github.com/NYTimes/gziphandler v1.0.1/go.mod h1:3wb06e3pkSAbeQ52E9H9iFoQsEEwGN64994WTCIhntQ=
-github.com/NeJan2020/process-exporter v0.8.7 h1:C4UfGxcBjs3mVQiFFOoe9DZK+dBJh/oDvf6ShxRF908=
-github.com/NeJan2020/process-exporter v0.8.7/go.mod h1:tzUO/+OadS/ynh8xu2lO66zb72a8x0VrIWLPddKGilU=
+github.com/NeJan2020/process-exporter v0.7.10 h1:7ga7PD8pJnL1X17eZ5ID1uA9YsQUvkxiYZMYXtgNKqI=
+github.com/NeJan2020/process-exporter v0.7.10/go.mod h1:DHZRZjqxw9LCOpLlX0DjBuyn6d5plh41Jv6Tmttj7Ek=
 github.com/NeJan2020/rabbitmq_exporter v0.0.0-20241008111853-e20867c159fd h1:jyxn1ORAWxXMiWIyl/MZJZhBLBSSlhGZ0FakgF8Lftc=
 github.com/NeJan2020/rabbitmq_exporter v0.0.0-20241008111853-e20867c159fd/go.mod h1:Vej8R9ZYbcl7CWfI8UqfdF355JhZVR8TqxC5DLFj1Wo=
 github.com/Nvveen/Gotty v0.0.0-20120604004816-cd527374f1e5 h1:TngWCqHvy9oXAN6lEVMRuU21PR1EtLVZJmdB18Gu3Rw=
@@ -1853,6 +1853,7 @@ github.com/nats-io/nats.go v1.9.1/go.mod h1:ZjDU1L/7fJ09jvUSRVBR2e7+RnLiiIQyqyzE
 github.com/nats-io/nkeys v0.1.0/go.mod h1:xpnFELMwJABBLVhffcfd1MZx6VsNRFpEugbxziKVo7w=
 github.com/nats-io/nkeys v0.1.3/go.mod h1:xpnFELMwJABBLVhffcfd1MZx6VsNRFpEugbxziKVo7w=
 github.com/nats-io/nuid v1.0.1/go.mod h1:19wcPz3Ph3q0Jbyiqsd0kePYG7A95tJPxeL+1OSON2c=
+github.com/ncabatoff/fakescraper v0.0.0-20201102132415-4b37ba603d65/go.mod h1:Tx6UMSMyIsjLG/VU/F6xA1+0XI+/f9o1dGJnf1l+bPg=
 github.com/ncabatoff/go-seq v0.0.0-20180805175032-b08ef85ed833 h1:t4WWQ9I797y7QUgeEjeXnVb+oYuEDQc6gLvrZJTYo94=
 github.com/ncabatoff/go-seq v0.0.0-20180805175032-b08ef85ed833/go.mod h1:0CznHmXSjMEqs5Tezj/w2emQoM41wzYM9KpDKUHPYag=
 github.com/nerdswords/yet-another-cloudwatch-exporter v0.61.0 h1:aZIz1Dh+dXoesIvv56uReOpvDE21RvRgADhyTgEdNXw=
@@ -2223,6 +2224,7 @@ github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af/go.mod h1:XWv6So
 github.com/rogpeppe/fastuuid v1.2.0/go.mod h1:jVj6XXZzXRy/MSR5jhDC/2q6DgLz+nrA6LYCDYWNEvQ=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
 github.com/rogpeppe/go-internal v1.6.1/go.mod h1:xXDCJY+GAPziupqXw64V24skbSoqbTEfhy4qGm1nDQc=
+github.com/rogpeppe/go-internal v1.8.0/go.mod h1:WmiCO8CzOY8rg0OYDC4/i/2WRWAB6poM+XZ2dLUbcbE=
 github.com/rogpeppe/go-internal v1.9.0/go.mod h1:WtVeX8xhTBvf0smdhujwtBcq4Qrzq/fJaraNFVN+nFs=
 github.com/rogpeppe/go-internal v1.11.0/go.mod h1:ddIwULY96R17DhadqLgMfk9H9tvdUzkipdSkR5nkCZA=
 github.com/rogpeppe/go-internal v1.12.0 h1:exVL4IDcn6na9z1rAb56Vxr+CgyK3nn3O+epU5NdKM8=
