@@ -29,5 +29,6 @@ func toProcessExporter(config *process_exporter.Config) *process.Arguments {
 		Threads:         config.Threads,
 		SMaps:           config.SMaps,
 		Recheck:         config.Recheck,
+		MinimalMetrics:  config.MinimalMetrics,
 	}
 }

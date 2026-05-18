@@ -51,6 +51,7 @@ func TestAlloyConfigConvert(t *testing.T) {
 	track_threads     = true
 	gather_smaps      = false
 	recheck_on_scrape = false
+	minimal_metrics   = true
 `
 
 	var args Arguments
@@ -61,6 +62,7 @@ func TestAlloyConfigConvert(t *testing.T) {
 	require.True(t, args.Threads)
 	require.False(t, args.SMaps)
 	require.False(t, args.Recheck)
+	require.False(t, args.MinimalMetrics)
 
 	expected := []MatcherGroup{
 		{
@@ -76,6 +78,7 @@ func TestAlloyConfigConvert(t *testing.T) {
 	require.True(t, c.Threads)
 	require.False(t, c.SMaps)
 	require.False(t, c.Recheck)
+	require.True(t, c.MinimalMetrics)
 
 	e := config.MatcherRules{
 		{
