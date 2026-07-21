@@ -381,8 +381,8 @@ github.com/Microsoft/hcsshim v0.12.5 h1:bpTInLlDy/nDRWFVcefDZZ1+U8tS+rz3MxjKgu9b
 github.com/Microsoft/hcsshim v0.12.5/go.mod h1:tIUGego4G1EN5Hb6KC90aDYiUI2dqLSTTOCjVNpOgZ8=
 github.com/NYTimes/gziphandler v0.0.0-20170623195520-56545f4a5d46/go.mod h1:3wb06e3pkSAbeQ52E9H9iFoQsEEwGN64994WTCIhntQ=
 github.com/NYTimes/gziphandler v1.0.1/go.mod h1:3wb06e3pkSAbeQ52E9H9iFoQsEEwGN64994WTCIhntQ=
-github.com/NeJan2020/process-exporter v0.7.10 h1:7ga7PD8pJnL1X17eZ5ID1uA9YsQUvkxiYZMYXtgNKqI=
-github.com/NeJan2020/process-exporter v0.7.10/go.mod h1:DHZRZjqxw9LCOpLlX0DjBuyn6d5plh41Jv6Tmttj7Ek=
+github.com/NeJan2020/process-exporter v0.7.11-0.20260721021840-16f8817ea80d h1:FktKcrZbUEVW1OAz7lhA1WtKegqef8zJlLpVMk4aRg8=
+github.com/NeJan2020/process-exporter v0.7.11-0.20260721021840-16f8817ea80d/go.mod h1:DHZRZjqxw9LCOpLlX0DjBuyn6d5plh41Jv6Tmttj7Ek=
 github.com/NeJan2020/rabbitmq_exporter v0.0.0-20241008111853-e20867c159fd h1:jyxn1ORAWxXMiWIyl/MZJZhBLBSSlhGZ0FakgF8Lftc=
 github.com/NeJan2020/rabbitmq_exporter v0.0.0-20241008111853-e20867c159fd/go.mod h1:Vej8R9ZYbcl7CWfI8UqfdF355JhZVR8TqxC5DLFj1Wo=
 github.com/Nvveen/Gotty v0.0.0-20120604004816-cd527374f1e5 h1:TngWCqHvy9oXAN6lEVMRuU21PR1EtLVZJmdB18Gu3Rw=

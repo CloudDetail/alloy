@@ -624,6 +624,7 @@ prometheus.exporter.process "integrations_process_exporter" {
 		name    = "{{.Comm}}"
 		cmdline = [".+"]
 	}
+	remove_empty_groups = true
 }
 
 discovery.relabel "integrations_process_exporter" {

@@ -157,6 +157,7 @@ integrations:
       replacement: postgres-a
   process_exporter:
     enabled: true
+    remove_empty_groups: true
     process_names:
     - name: "{{.Comm}}"
       cmdline:

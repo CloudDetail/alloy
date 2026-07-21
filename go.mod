@@ -925,4 +925,6 @@ replace github.com/prometheus/procfs => github.com/prometheus/procfs v0.12.0
 // PR to track it: https://github.com/opencontainers/runc/pull/4397
 replace github.com/opencontainers/runc => github.com/rafaelroquetto/runc v1.1.14-1
 
-replace github.com/ncabatoff/process-exporter => github.com/NeJan2020/process-exporter v0.7.10
+// Pin the 0.7.10 branch to commit 16f8817ea80d6c9749a010295399e3506cb782fc.
+// The version below is Go's canonical pseudo-version for that commit, not a v0.7.11 release.
+replace github.com/ncabatoff/process-exporter => github.com/NeJan2020/process-exporter v0.7.11-0.20260721021840-16f8817ea80d

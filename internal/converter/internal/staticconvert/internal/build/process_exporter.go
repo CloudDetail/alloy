@@ -23,12 +23,13 @@ func toProcessExporter(config *process_exporter.Config) *process.Arguments {
 	}
 
 	return &process.Arguments{
-		ProcessExporter: matcherGroups,
-		ProcFSPath:      config.ProcFSPath,
-		Children:        config.Children,
-		Threads:         config.Threads,
-		SMaps:           config.SMaps,
-		Recheck:         config.Recheck,
-		MinimalMetrics:  config.MinimalMetrics,
+		ProcessExporter:   matcherGroups,
+		ProcFSPath:        config.ProcFSPath,
+		Children:          config.Children,
+		Threads:           config.Threads,
+		SMaps:             config.SMaps,
+		Recheck:           config.Recheck,
+		MinimalMetrics:    config.MinimalMetrics,
+		RemoveEmptyGroups: config.RemoveEmptyGroups,
 	}
 }
