@@ -30,6 +30,7 @@ All arguments are optional. Omitted fields take their default values.
 | `track_threads`     | `bool`   | Report metrics for a process' individual threads. | `true`  | no       |
 | `gather_smaps`      | `bool`   | Gather metrics from the smaps file for a process. | `true`  | no       |
 | `recheck_on_scrape` | `bool`   | Recheck process names on each scrape.             | `true`  | no       |
+| `remove_empty_groups` | `bool` | Remove process groups after all processes exit.   | `false` | no       |
 
 ## Blocks
 

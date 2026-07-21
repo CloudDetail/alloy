@@ -19,6 +19,7 @@ func TestAlloyConfigUnmarshal(t *testing.T) {
 	track_threads     = false
 	gather_smaps      = true
 	recheck_on_scrape = true
+	remove_empty_groups = true
 `
 
 	var args Arguments
@@ -29,6 +30,7 @@ func TestAlloyConfigUnmarshal(t *testing.T) {
 	require.False(t, args.Threads)
 	require.True(t, args.SMaps)
 	require.True(t, args.Recheck)
+	require.True(t, args.RemoveEmptyGroups)
 
 	expected := []MatcherGroup{
 		{
@@ -52,6 +54,7 @@ func TestAlloyConfigConvert(t *testing.T) {
 	gather_smaps      = false
 	recheck_on_scrape = false
 	minimal_metrics   = true
+	remove_empty_groups = true
 `
 
 	var args Arguments
@@ -62,7 +65,8 @@ func TestAlloyConfigConvert(t *testing.T) {
 	require.True(t, args.Threads)
 	require.False(t, args.SMaps)
 	require.False(t, args.Recheck)
-	require.False(t, args.MinimalMetrics)
+	require.True(t, args.MinimalMetrics)
+	require.True(t, args.RemoveEmptyGroups)
 
 	expected := []MatcherGroup{
 		{
@@ -79,6 +83,7 @@ func TestAlloyConfigConvert(t *testing.T) {
 	require.False(t, c.SMaps)
 	require.False(t, c.Recheck)
 	require.True(t, c.MinimalMetrics)
+	require.True(t, c.RemoveEmptyGroups)
 
 	e := config.MatcherRules{
 		{
